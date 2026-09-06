@@ -1,0 +1,148 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import MobileBookingBar from '../../components/MobileBookingBar.astro';
+import { contactConfig, seoConfig } from '../../data/siteConfig';
+---
+
+<Layout
+  title={seoConfig.pages.location.title}
+  description={seoConfig.pages.location.description}
+  keywords={seoConfig.pages.location.keywords}
+>
+  <Navbar />
+
+  <main class="pt-32 pb-20">
+    <!-- 1. Hero -->
+    <section class="px-4 sm:px-8 lg:px-16 py-12 max-w-7xl mx-auto">
+      <div class="space-y-4 max-w-3xl">
+        <span class="text-xs font-mono uppercase tracking-[0.3em] text-[#C7FF00] block">
+          PHYSICAL LOCATION
+        </span>
+        <h1 class="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase font-headline tracking-tighter text-[#F5F5F2] leading-[0.82]">
+          BENIYA BAGH.<br />
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-[#F5F5F2] to-white/40">
+            VARANASI.
+          </span>
+        </h1>
+        <div class="pt-2">
+          <div class="text-sm font-bold font-mono tracking-widest text-[#C7FF00] uppercase mb-1">
+            {contactConfig.name}
+          </div>
+          <p class="text-xl sm:text-2xl text-[#8E8E93] font-light">
+            {contactConfig.fullAddress}
+          </p>
+        </div>
+      </div>
+
+      <!-- Action Row -->
+      <div class="mt-8 flex flex-wrap items-center gap-4">
+        <a
+          href={contactConfig.mapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary text-xs"
+        >
+          <span>GET DIRECTIONS ↗</span>
+        </a>
+
+        <a
+          href={contactConfig.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-secondary text-xs"
+        >
+          <span>WHATSAPP TO BOOK →</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. Minimal Location Map Graphic Card -->
+    <section class="px-4 sm:px-8 lg:px-16 py-12 max-w-7xl mx-auto border-t border-white/10">
+      <div class="p-8 sm:p-12 rounded-3xl bg-[#111111] border border-white/10 flex flex-col justify-between min-h-[260px] relative overflow-hidden">
+        <div class="absolute -right-6 -bottom-6 text-9xl font-headline font-extrabold text-white/[0.03] select-none pointer-events-none">
+          221001
+        </div>
+
+        <div class="space-y-3 relative z-10">
+          <span class="text-xs font-mono uppercase tracking-[0.25em] text-[#C7FF00] block">
+            CENTRAL ACCESS
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-bold uppercase font-headline text-white">
+            BENIYA CRICKET ARENA
+          </h2>
+          <p class="text-xs sm:text-sm font-mono text-[#8E8E93]">
+            25.3134° N, 82.9984° E · BENIYA BAGH, VARANASI, UP 221001
+          </p>
+        </div>
+
+        <div class="pt-8 relative z-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/5">
+          <span class="text-xs font-mono text-[#8E8E93] uppercase">
+            OPEN DAILY FOR GAMES
+          </span>
+          <a
+            href={contactConfig.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-xs font-bold uppercase tracking-wider text-[#C7FF00] hover:text-white transition-colors"
+          >
+            OPEN IN GOOGLE MAPS ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Local-Intent Subsections (Varanasi, Sigra, Lehratara) -->
+    <section class="px-4 sm:px-8 lg:px-16 py-16 max-w-7xl mx-auto border-t border-white/10 space-y-8">
+      <!-- Intent 1 -->
+      <div class="p-8 sm:p-10 rounded-3xl bg-[#111111] border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="space-y-2">
+          <span class="text-[10px] font-mono font-bold tracking-widest text-[#C7FF00] uppercase">
+            LOCAL INTENT
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold uppercase font-headline text-white">
+            LOOKING FOR A TURF IN VARANASI?
+          </h2>
+          <p class="text-sm text-[#8E8E93] font-light leading-relaxed">
+            Beniya Cricket Arena is located in Beniya Bagh, Varanasi.
+          </p>
+        </div>
+
+        <a
+          href="/arena/"
+          class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#C7FF00] hover:text-white transition-colors whitespace-nowrap"
+        >
+          <span>EXPLORE THE ARENA →</span>
+        </a>
+      </div>
+
+      <!-- Intent 2 -->
+      <div class="p-8 sm:p-10 rounded-3xl bg-[#111111] border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div class="space-y-2">
+          <span class="text-[10px] font-mono font-bold tracking-widest text-[#C7FF00] uppercase">
+            PROXIMITY
+          </span>
+          <h2 class="text-xl sm:text-2xl font-bold uppercase font-headline text-white">
+            LOOKING FOR A TURF AROUND SIGRA OR LEHRATARA?
+          </h2>
+          <p class="text-sm text-[#8E8E93] font-light leading-relaxed">
+            Beniya Cricket Arena is located in Beniya Bagh, Varanasi. Contact the arena directly for current pricing and booking.
+          </p>
+        </div>
+
+        <a
+          href={contactConfig.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary text-xs whitespace-nowrap"
+        >
+          <span>CONTACT TO BOOK →</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <MobileBookingBar />
+</Layout>

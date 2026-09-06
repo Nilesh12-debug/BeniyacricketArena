@@ -1,11 +1,68 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import KeyInfoBar from '../components/KeyInfoBar.astro';
+import ArenaIntro from '../components/ArenaIntro.astro';
+import Facilities from '../components/Facilities.astro';
+import Pricing from '../components/Pricing.astro';
+import Gallery from '../components/Gallery.astro';
+import PlayAfterDark from '../components/PlayAfterDark.astro';
+import ReviewsSection from '../components/ReviewsSection.astro';
+import Location from '../components/Location.astro';
+import FAQ from '../components/FAQ.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
+import MobileBookingBar from '../components/MobileBookingBar.astro';
+import { seoConfig } from '../data/siteConfig';
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title={seoConfig.pages.home.title}
+  description={seoConfig.pages.home.description}
+  keywords={seoConfig.pages.home.keywords}
+>
+  <!-- 1. Header Navigation -->
+  <Navbar />
+
+  <main>
+    <!-- 2. Hero Section (Split-screen, H1: Cricket Turf in Varanasi, Key facts) -->
+    <Hero />
+
+    <!-- 3. Trust / Key Information Bar (Everything You Need To Play) -->
+    <KeyInfoBar />
+
+    <!-- 4. About the Cricket Turf (A Cricket Turf Built For The Game) -->
+    <ArenaIntro />
+
+    <!-- 5. Facilities / Why Play Here (Why Play At Beniya? - 6 Simple Cards) -->
+    <Facilities />
+
+    <!-- 6. Pricing / Booking (Cricket Turf Price & Slot Booking - Interactive Selector) -->
+    <Pricing />
+
+    <!-- 7. Real Photos / Gallery (See The Arena - Authentic Photography) -->
+    <Gallery />
+
+    <!-- 8. Dark Contrast Section (Cricket After Dark - Deep Charcoal Atmosphere) -->
+    <PlayAfterDark />
+
+    <!-- 9. Reviews (What Players Say - 3 Verified Player Testimonials) -->
+    <ReviewsSection />
+
+    <!-- 10. Location / Local SEO (Cricket Turf in Beniya Bagh, Varanasi - Map & Access) -->
+    <Location />
+
+    <!-- 11. FAQ (Frequently Asked Questions - 6 Crawlable Accordions) -->
+    <FAQ />
+
+    <!-- 12. Final Conversion Section (Book Your Cricket Turf in Varanasi) -->
+    <FinalCTA />
+  </main>
+
+  <!-- 13. Footer -->
+  <Footer />
+
+  <!-- Mobile-First Sticky Action Bar (CALL · WHATSAPP · BOOK NOW) -->
+  <MobileBookingBar />
 </Layout>

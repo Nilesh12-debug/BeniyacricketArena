@@ -1,0 +1,224 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import MobileBookingBar from '../../components/MobileBookingBar.astro';
+import { contactConfig, seoConfig, siteImages, arenaSpecs } from '../../data/siteConfig';
+
+const facilities = [
+  {
+    title: "HIGH ENCLOSURE NETTING",
+    desc: "35 ft ceiling enclosure engineered to keep aerial shots inside without stoppage.",
+    image: siteImages.space
+  },
+  {
+    title: "PROFESSIONAL TURF SURFACE",
+    desc: "Even, high-density playing pitch built for consistent pace, spin, and true bounce.",
+    image: siteImages.game
+  },
+  {
+    title: "MATCH-GRADE FLOODLIGHTS",
+    desc: "Anti-glare overhead lighting delivering uniform illumination for evening and night play.",
+    image: siteImages.night
+  },
+  {
+    title: "PLAYER DUGOUTS & SEATING",
+    desc: "Dedicated team benches and spectator viewing area along the sideline.",
+    image: siteImages.energy
+  }
+];
+
+const differentiators = [
+  {
+    tag: "01",
+    title: "UNINTERRUPTED PLAY",
+    desc: "Full box enclosure ensures no lost balls, zero delays, and continuous fast-paced cricket."
+  },
+  {
+    tag: "02",
+    title: "TRUE CRICKET BOUNCE",
+    desc: "Precision turf bed engineered for authentic ball bounce and reliable bowler run-up."
+  },
+  {
+    tag: "03",
+    title: "SHADOWLESS NIGHT LIGHTING",
+    desc: "Multi-angle floodlight array provides crisp visibility with minimal shadows."
+  },
+  {
+    tag: "04",
+    title: "CENTRAL VARANASI LOCATION",
+    desc: "Situated right in Beniya Bagh, easily reachable from Sigra, Lehratara, and Godowlia."
+  }
+];
+---
+
+<Layout
+  title={seoConfig.pages.arena.title}
+  description={seoConfig.pages.arena.description}
+  keywords={seoConfig.pages.arena.keywords}
+>
+  <Navbar />
+
+  <main class="pt-32 pb-20">
+    <!-- 1. Arena Hero -->
+    <section class="px-4 sm:px-8 lg:px-16 py-12 max-w-7xl mx-auto">
+      <div class="space-y-4 max-w-3xl">
+        <span class="text-xs font-mono uppercase tracking-[0.3em] text-[#C7FF00] block">
+          VENUE DETAILS · BENIYA BAGH
+        </span>
+        <h1 class="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase font-headline tracking-tighter text-[#F5F5F2] leading-[0.82]">
+          THE ARENA.
+        </h1>
+        <p class="text-xl sm:text-2xl text-[#8E8E93] font-light pt-2">
+          An enclosed, floodlit cricket facility built for competitive matches in central Varanasi.
+        </p>
+      </div>
+
+      <!-- Large Hero Venue Visual -->
+      <div class="mt-12 rounded-3xl overflow-hidden border border-white/10 aspect-[21/9] max-h-[560px] w-full bg-[#121212]">
+        <img
+          src={siteImages.arena}
+          alt="Beniya Cricket Arena Varanasi playing surface"
+          class="w-full h-full object-cover filter brightness-[0.8] contrast-[1.1]"
+          loading="eager"
+        />
+      </div>
+    </section>
+
+    <!-- 2. Venue Specifications -->
+    <section class="px-4 sm:px-8 lg:px-16 py-16 max-w-7xl mx-auto border-t border-white/10">
+      <div class="pb-10">
+        <span class="text-xs font-mono uppercase tracking-[0.3em] text-[#C7FF00] block mb-2">
+          DIMENSIONS & CAPACITY
+        </span>
+        <h2 class="text-4xl sm:text-6xl font-extrabold uppercase font-headline text-[#F5F5F2]">
+          SPECIFICATIONS.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {arenaSpecs.map((spec) => (
+          <div class="p-8 rounded-3xl bg-[#111111] border border-white/10 flex flex-col justify-between min-h-[200px]">
+            <div class="flex items-baseline gap-2">
+              <span class="text-5xl sm:text-6xl font-extrabold uppercase font-headline tracking-tight text-[#F5F5F2]">
+                {spec.number}
+              </span>
+              {spec.unit && (
+                <span class="text-xl font-bold font-mono text-[#C7FF00]">
+                  {spec.unit}
+                </span>
+              )}
+            </div>
+
+            <div class="text-xs font-mono font-bold uppercase tracking-wider text-[#C7FF00] mt-auto">
+              {spec.subtitle}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 3. Facilities Visual Presentation -->
+    <section class="px-4 sm:px-8 lg:px-16 py-16 max-w-7xl mx-auto border-t border-white/10">
+      <div class="pb-12">
+        <span class="text-xs font-mono uppercase tracking-[0.3em] text-[#C7FF00] block mb-2">
+          BUILT FOR CRICKET
+        </span>
+        <h2 class="text-4xl sm:text-6xl font-extrabold uppercase font-headline text-[#F5F5F2]">
+          FACILITIES.
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {facilities.map((fac) => (
+          <div class="rounded-3xl overflow-hidden bg-[#111111] border border-white/10 flex flex-col">
+            <div class="aspect-[16/9] w-full overflow-hidden bg-[#181818]">
+              <img
+                src={fac.image}
+                alt={fac.title}
+                class="w-full h-full object-cover filter brightness-[0.8] hover:scale-105 transition-all duration-700"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-6 sm:p-8 space-y-2 flex-1 flex flex-col justify-center">
+              <h3 class="text-lg sm:text-xl font-bold uppercase font-headline text-white tracking-wide">
+                {fac.title}
+              </h3>
+              <p class="text-xs sm:text-sm text-[#8E8E93] font-light leading-relaxed">
+                {fac.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 4. What Makes It Different? -->
+    <section class="px-4 sm:px-8 lg:px-16 py-16 max-w-7xl mx-auto border-t border-white/10">
+      <div class="pb-12">
+        <span class="text-xs font-mono uppercase tracking-[0.3em] text-[#C7FF00] block mb-2">
+          THE STANDARD
+        </span>
+        <h2 class="text-4xl sm:text-6xl font-extrabold uppercase font-headline text-[#F5F5F2]">
+          WHAT MAKES IT DIFFERENT?
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {differentiators.map((diff) => (
+          <div class="p-8 rounded-3xl bg-[#111111] border border-white/10 flex flex-col justify-between space-y-6">
+            <div class="text-xs font-mono font-bold tracking-widest text-[#C7FF00]">
+              {diff.tag}
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-lg sm:text-xl font-bold uppercase font-headline text-white">
+                {diff.title}
+              </h3>
+              <p class="text-xs sm:text-sm text-[#8E8E93] font-light leading-relaxed">
+                {diff.desc}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 5. Bottom Conversion Action -->
+    <section class="px-4 sm:px-8 lg:px-16 py-20 max-w-7xl mx-auto border-t border-white/10 text-center">
+      <div class="max-w-3xl mx-auto space-y-6">
+        <span class="text-xs font-mono font-bold tracking-[0.3em] text-[#C7FF00] uppercase">
+          RESERVE YOUR GAME
+        </span>
+        <h2 class="text-5xl sm:text-7xl font-extrabold uppercase font-headline text-[#F5F5F2]">
+          READY TO PLAY AT BENIYA?
+        </h2>
+        <p class="text-base sm:text-lg text-[#8E8E93] font-light max-w-md mx-auto">
+          Contact the arena directly to check availability and book your game slot.
+        </p>
+
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href={contactConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary text-xs sm:text-sm"
+          >
+            <span>WHATSAPP TO BOOK</span>
+            <span>→</span>
+          </a>
+
+          <a
+            href={contactConfig.phoneHref}
+            class="btn-secondary text-xs sm:text-sm"
+          >
+            <span>CALL NOW</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+  <MobileBookingBar />
+</Layout>

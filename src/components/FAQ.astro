@@ -1,0 +1,44 @@
+---
+import { faqs } from '../data/siteConfig';
+---
+
+<section id="faq" class="texture-light py-12 sm:py-16 lg:py-24 bg-[#FAFAF7] border-b border-[#E5E0D8] relative overflow-hidden">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="reveal-group text-center max-w-2xl mx-auto mb-8 sm:mb-16">
+      <span class="inline-block text-xs font-bold tracking-[0.2em] text-[#5A7865] uppercase mb-2">
+        QUESTIONS & ANSWERS
+      </span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#161916] tracking-tight mb-3 sm:mb-4">
+        FREQUENTLY ASKED QUESTIONS
+      </h2>
+      <p class="text-xs sm:text-base text-[#5E665E]">
+        Everything you need to know about booking, timings, rates, and facilities at Beniya Cricket Arena.
+      </p>
+    </div>
+
+    <!-- Accordion List (Optimized Mobile Tap Targets & Smooth Expansion) -->
+    <div class="reveal-group space-y-3 sm:space-y-4">
+      {faqs.map((item, index) => (
+        <details
+          class="group bg-white border border-[#E5E0D8] rounded-xl overflow-hidden shadow-xs hover:border-[#1B4D3E]/30 open:border-[#1B4D3E]/50 transition-all duration-200"
+          open={index === 0}
+        >
+          <summary class="flex items-center justify-between p-4 sm:p-6 cursor-pointer select-none text-left font-bold text-sm sm:text-lg text-[#161916] group-hover:text-[#1B4D3E] transition-colors focus:outline-none">
+            <span class="pr-2">{item.question}</span>
+            <span class="ml-2 sm:ml-4 flex-shrink-0 w-6 h-6 rounded-full bg-[#F4F0E8] text-[#161916] group-open:bg-[#1B4D3E] group-open:text-white flex items-center justify-center text-xs transition-colors duration-200">
+              <svg class="w-3.5 h-3.5 transform group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+              </svg>
+            </span>
+          </summary>
+          <div class="px-4 pb-4 sm:px-6 sm:pb-6 text-xs sm:text-base text-[#5E665E] leading-relaxed border-t border-[#E5E0D8]/60 pt-3 sm:pt-4">
+            {item.answer}
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>

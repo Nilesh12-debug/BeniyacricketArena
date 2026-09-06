@@ -1,0 +1,170 @@
+---
+import { bookingSlots, contactConfig } from '../data/siteConfig';
+---
+
+<section id="pricing" class="texture-light py-12 sm:py-16 lg:py-24 bg-[#FAFAF7] border-b border-[#E5E0D8] relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <!-- Section Header -->
+    <div class="reveal-group text-center max-w-2xl mx-auto mb-8 sm:mb-16">
+      <span class="inline-block text-xs font-bold tracking-[0.2em] text-[#5A7865] uppercase mb-2">
+        HOURLY RATES & SCHEDULE
+      </span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#161916] tracking-tight mb-3 sm:mb-4">
+        CRICKET TURF PRICE & SLOT BOOKING
+      </h2>
+      <p class="text-xs sm:text-base text-[#5E665E]">
+        Choose a time and book your cricket turf slot at Beniya Cricket Arena.
+      </p>
+    </div>
+
+    <!-- Booking Interface Box -->
+    <div class="reveal-group max-w-4xl mx-auto bg-white border border-[#E5E0D8] rounded-2xl p-4 sm:p-8 lg:p-10 shadow-xs hover:shadow-md transition-shadow duration-300">
+      
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pb-4 sm:pb-6 border-b border-[#E5E0D8] mb-6 sm:mb-8">
+        <div>
+          <h3 class="text-base sm:text-lg font-bold text-[#161916]">Today's Available Playing Slots</h3>
+          <p class="text-[11px] sm:text-xs text-[#5E665E] mt-0.5">Rates include full turf access, floodlights, and safety equipment</p>
+        </div>
+        <div class="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs font-medium">
+          <span class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#1B4D3E]"></span> Available
+          </span>
+          <span class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#8A9E90]"></span> Selected
+          </span>
+          <span class="flex items-center gap-1.5">
+            <span class="w-2.5 h-2.5 rounded-full bg-[#B0B0B0]"></span> Booked
+          </span>
+        </div>
+      </div>
+
+      <!-- Slot Cards Grid -->
+      <div id="slot-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">
+        {bookingSlots.map((slot, idx) => {
+          const isBooked = slot.status === 'BOOKED';
+          return (
+            <button
+              type="button"
+              disabled={isBooked}
+              data-slot-id={slot.id}
+              data-slot-time={slot.time}
+              data-slot-price={slot.priceFormatted}
+              class={`slot-card relative text-left p-3.5 sm:p-4 rounded-xl border transition-all duration-200 min-h-[64px] sm:min-h-[72px] ${
+                isBooked
+                  ? 'bg-[#F2F2F2] border-[#E0E0E0] text-[#8C8C8C] cursor-not-allowed opacity-60'
+                  : idx === 4 // default pre-selected slot (07:00 PM)
+                    ? 'slot-selected bg-[#EBF3EF] border-[#1B4D3E] text-[#161916] ring-2 ring-[#1B4D3E] shadow-sm scale-[1.01]'
+                    : 'bg-white border-[#E5E0D8] hover:border-[#1B4D3E]/50 hover:bg-[#FAF8F5] hover:-translate-y-0.5 text-[#161916] cursor-pointer'
+              }`}
+            >
+              <div class="flex items-center justify-between mb-1.5 sm:mb-2">
+                <span class="text-sm font-extrabold tracking-tight">
+                  {slot.timeDisplay}
+                </span>
+                <span class={`text-[9px] sm:text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider ${
+                  isBooked 
+                    ? 'bg-[#E5E5E5] text-[#737373]' 
+                    : 'bg-[#EBF3EF] text-[#1B4D3E]'
+                }`}>
+                  {slot.status}
+                </span>
+              </div>
+
+              <div class="flex items-baseline justify-between mt-2 pt-2 border-t border-[#E5E0D8]/60">
+                <span class="text-base sm:text-lg font-black text-[#161916]">
+                  {isBooked ? '—' : slot.priceFormatted}
+                </span>
+                <span class="text-[10px] sm:text-[11px] font-medium text-[#5E665E]">
+                  {isBooked ? 'Unavailable' : '/ hour'}
+                </span>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+
+      <!-- Selected Slot Summary & Direct Actions -->
+      <div class="bg-[#F4F0E8] border border-[#E5E0D8] rounded-xl p-4 sm:p-6 flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 sm:gap-5 transition-all duration-300">
+        <div>
+          <span class="text-[10px] sm:text-xs font-bold text-[#5A7865] uppercase tracking-wider block mb-0.5 sm:mb-1">
+            Selected Slot
+          </span>
+          <div class="flex items-center gap-2.5 sm:gap-3">
+            <span id="selected-slot-text" class="text-sm sm:text-lg font-extrabold text-[#161916] transition-all duration-200">
+              07:00 PM - 08:00 PM (₹1,200)
+            </span>
+            <span class="px-2 py-0.5 rounded bg-[#EBF3EF] text-[#1B4D3E] text-[10px] sm:text-xs font-bold border border-[#1B4D3E]/15">
+              ✓ Instant Confirm
+            </span>
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
+          <a
+            id="slot-book-btn"
+            href="https://wa.me/919876543210?text=Hi%20Beniya%20Cricket%20Arena,%20I%20would%20like%20to%20book%20the%2007:00%20PM%20-%2008:00%20PM%20slot%20(₹1,200)."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary glow-forest glow-forest-hover text-center font-bold text-sm px-6 py-3.5 min-h-[48px] flex items-center justify-center gap-2"
+          >
+            <span>BOOK THIS SLOT</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+
+          <a
+            href={contactConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-secondary text-center font-bold text-sm px-5 py-3.5 min-h-[48px] flex items-center justify-center gap-2 bg-white"
+          >
+            <svg class="w-4 h-4 text-[#1B4D3E]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+            </svg>
+            <span>BOOK ON WHATSAPP</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const slotCards = document.querySelectorAll('.slot-card:not([disabled])');
+  const selectedSlotText = document.getElementById('selected-slot-text');
+  const slotBookBtn = document.getElementById('slot-book-btn') as HTMLAnchorElement;
+
+  slotCards.forEach(card => {
+    card.addEventListener('click', () => {
+      // Remove active styles from all
+      slotCards.forEach(c => {
+        c.classList.remove('slot-selected', 'bg-[#EBF3EF]', 'border-[#1B4D3E]', 'ring-2', 'ring-[#1B4D3E]', 'shadow-sm', 'scale-[1.01]');
+        c.classList.add('bg-white', 'border-[#E5E0D8]');
+      });
+
+      // Add active style to selected with micro-scale
+      card.classList.remove('bg-white', 'border-[#E5E0D8]');
+      card.classList.add('slot-selected', 'bg-[#EBF3EF]', 'border-[#1B4D3E]', 'ring-2', 'ring-[#1B4D3E]', 'shadow-sm', 'scale-[1.01]');
+
+      const time = card.getAttribute('data-slot-time');
+      const price = card.getAttribute('data-slot-price');
+
+      if (selectedSlotText && time && price) {
+        selectedSlotText.style.opacity = '0';
+        setTimeout(() => {
+          selectedSlotText.textContent = `${time} (${price})`;
+          selectedSlotText.style.opacity = '1';
+        }, 100);
+      }
+
+      if (slotBookBtn && time && price) {
+        const text = encodeURIComponent(`Hi Beniya Cricket Arena, I would like to book the ${time} slot (${price}).`);
+        slotBookBtn.href = `https://wa.me/919876543210?text=${text}`;
+      }
+    });
+  });
+</script>

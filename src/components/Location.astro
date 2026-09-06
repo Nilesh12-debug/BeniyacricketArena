@@ -1,0 +1,122 @@
+---
+import { contactConfig } from '../data/siteConfig';
+---
+
+<section id="location" class="texture-cream py-12 sm:py-16 lg:py-24 bg-[#F4F0E8] border-b border-[#E5E0D8] relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      
+      <!-- Left Column: Business Location Details & Contact Actions -->
+      <div class="reveal-group lg:col-span-6 text-left">
+        <span class="inline-block text-xs font-bold tracking-[0.2em] text-[#5A7865] uppercase mb-2">
+          LOCATION & ACCESS
+        </span>
+        
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#161916] tracking-tight leading-tight mb-3 sm:mb-4">
+          CRICKET TURF IN BENIYA BAGH, VARANASI
+        </h2>
+
+        <p class="text-xs sm:text-base text-[#5E665E] leading-relaxed mb-5 sm:mb-6">
+          Find Beniya Cricket Arena in Beniya Bagh, Varanasi and get directions to the turf. Conveniently accessible from Sigra, Godowlia, Lahurabir, and surrounding areas.
+        </p>
+
+        <!-- Business Details Card (Visible on mobile before map) -->
+        <div class="bg-white border border-[#E5E0D8] rounded-xl p-4 sm:p-6 mb-6 sm:mb-8 space-y-3.5 sm:space-y-4 shadow-xs hover:shadow-md transition-shadow duration-300">
+          
+          <div class="flex items-start gap-3 sm:gap-3.5">
+            <div class="w-7 sm:w-8 h-7 sm:h-8 rounded-lg bg-[#EBF3EF] text-[#1B4D3E] flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3.5 sm:w-4 h-3.5 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs sm:text-sm font-bold text-[#161916]">{contactConfig.name}</p>
+              <p class="text-[11px] sm:text-xs text-[#5E665E] mt-0.5">{contactConfig.fullAddress}</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 sm:gap-3.5">
+            <div class="w-7 sm:w-8 h-7 sm:h-8 rounded-lg bg-[#EBF3EF] text-[#1B4D3E] flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3.5 sm:w-4 h-3.5 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs sm:text-sm font-bold text-[#161916]">Opening Hours</p>
+              <p class="text-[11px] sm:text-xs text-[#5E665E] mt-0.5">{contactConfig.operatingHours} (24/7 Day & Night Cricket)</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 sm:gap-3.5">
+            <div class="w-7 sm:w-8 h-7 sm:h-8 rounded-lg bg-[#EBF3EF] text-[#1B4D3E] flex items-center justify-center flex-shrink-0 mt-0.5">
+              <svg class="w-3.5 sm:w-4 h-3.5 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+              </svg>
+            </div>
+            <div>
+              <p class="text-xs sm:text-sm font-bold text-[#161916]">Direct Phone & WhatsApp</p>
+              <p class="text-[11px] sm:text-xs text-[#5E665E] mt-0.5">{contactConfig.phone}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Action Buttons (Min 48px Height on Mobile) -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <a
+            href={contactConfig.mapsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary glow-forest-hover text-sm font-bold flex items-center justify-center gap-2 min-h-[48px]"
+          >
+            <span>GET DIRECTIONS</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+
+          <a
+            href={contactConfig.phoneHref}
+            class="btn-secondary text-sm font-bold flex items-center justify-center gap-2 min-h-[48px] bg-white"
+          >
+            <svg class="w-4 h-4 text-[#1B4D3E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <span>CALL NOW</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Interactive Map Visual (Below Details on Mobile) -->
+      <div class="reveal-group lg:col-span-6">
+        <div class="bg-white border border-[#E5E0D8] rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-shadow duration-300">
+          <div class="relative w-full h-64 sm:h-[360px] lg:h-[420px]">
+            <iframe
+              title="Beniya Cricket Arena Location Map in Beniya Bagh, Varanasi"
+              src="https://maps.google.com/maps?q=25.3145897,83.0042436&t=&z=17&ie=UTF8&iwloc=&output=embed"
+              class="w-full h-full border-0"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+          <div class="p-3.5 sm:p-4 bg-white border-t border-[#E5E0D8] flex items-center justify-between text-xs text-[#5E665E]">
+            <span class="font-semibold text-[#161916] text-[11px] sm:text-xs">Beniya Bagh, Varanasi 221001</span>
+            <a
+              href={contactConfig.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[#1B4D3E] font-bold hover:underline inline-flex items-center gap-1 text-[11px] sm:text-xs"
+            >
+              Open in Maps ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

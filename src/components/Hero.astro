@@ -1,0 +1,118 @@
+---
+import { contactConfig, siteImages } from '../data/siteConfig';
+---
+
+<section id="home" class="relative min-h-[100svh] sm:min-h-screen flex items-center justify-center overflow-hidden bg-[#0D120F]">
+  
+  <!-- Large Immersive Turf Photograph Background with Slow Cinematic Scale Movement -->
+  <div class="absolute inset-0 z-0 overflow-hidden">
+    <img
+      src={siteImages.hero}
+      alt="Modern enclosed cricket turf in Varanasi with artificial pitch and players batting under floodlights"
+      class="w-full h-full object-cover object-[center_30%] sm:object-center animate-hero-zoom will-change-transform"
+      loading="eager"
+      fetchpriority="high"
+    />
+    
+    <!-- Subtle Layered Dark Transparent Overlay for Maximum Readability & Atmosphere -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/45 to-black/80"></div>
+    <div class="absolute inset-0 bg-radial from-transparent via-black/20 to-black/65 pointer-events-none"></div>
+    
+    <!-- Very Faint Turf Light Glow in the Center Background -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#1B4D3E]/10 blur-[120px] pointer-events-none"></div>
+  </div>
+
+  <!-- Centered Hero Content with Staggered Entrance Animations -->
+  <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 sm:py-36 text-center flex flex-col items-center justify-center">
+    
+    <!-- Small Eyebrow Label (0.1s stagger) -->
+    <div class="hero-animate-eyebrow inline-flex items-center gap-2 mb-3.5 sm:mb-6">
+      <span class="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-black/45 backdrop-blur-md border border-white/20 text-[#EBF3EF] text-[11px] sm:text-xs font-extrabold tracking-[0.18em] sm:tracking-[0.2em] uppercase shadow-sm">
+        <span class="w-1.5 sm:w-2 h-1.5 sm:h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        BENIYA BAGH · VARANASI
+      </span>
+    </div>
+
+    <!-- Large Bold H1 Heading (0.25s stagger) -->
+    <h1 class="hero-animate-h1 text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.12] sm:leading-[1.08] mb-3.5 sm:mb-6 drop-shadow-sm uppercase">
+      CRICKET TURF<br class="hidden xs:inline" />
+      <span class="text-white">IN VARANASI</span>
+    </h1>
+
+    <!-- Supporting Text (0.4s stagger) -->
+    <p class="hero-animate-desc text-sm sm:text-lg md:text-xl text-[#E5EAE7] font-medium leading-relaxed mb-6 sm:mb-10 max-w-xl mx-auto drop-shadow-xs">
+      Play cricket, practice your game and enjoy night matches at Beniya Cricket Arena.
+    </p>
+
+    <!-- CTAs with Refined Forest Green Glow & Tactile Hover (0.55s stagger) -->
+    <div class="hero-animate-cta flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto mb-6 sm:mb-12 max-w-xs sm:max-w-none mx-auto">
+      <a
+        href="#pricing"
+        class="btn-primary glow-forest glow-forest-hover inline-flex items-center justify-center gap-2 bg-[#1B4D3E] text-white font-bold text-sm sm:text-base px-6 sm:px-8 py-3.5 sm:py-4 h-12 sm:h-auto rounded-lg border border-emerald-500/30"
+      >
+        <span>BOOK YOUR SLOT</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+
+      <a
+        href={contactConfig.mapsUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-secondary inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 text-white font-bold text-sm sm:text-base px-6 sm:px-7 py-3.5 sm:py-4 h-12 sm:h-auto rounded-lg border border-white/30 backdrop-blur-md"
+      >
+        <span>GET DIRECTIONS</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+        </svg>
+      </a>
+    </div>
+
+    <!-- Mobile Compact 2-Row / Desktop Single Row Specs Information (0.7s stagger) -->
+    <div class="hero-animate-specs w-full sm:w-auto max-w-sm sm:max-w-none mx-auto">
+      <!-- Mobile 2x2 Clean Layout -->
+      <div class="grid grid-cols-2 sm:hidden gap-1.5 p-2 rounded-xl bg-black/45 backdrop-blur-md border border-white/15 text-[#E5EAE7] text-[11px] font-bold tracking-wider uppercase text-center">
+        <div class="py-1 px-2 border-r border-b border-white/10 flex items-center justify-center">
+          24/7 OPEN
+        </div>
+        <div class="py-1 px-2 border-b border-white/10 flex items-center justify-center">
+          FLOODLIT
+        </div>
+        <div class="py-1 px-2 border-r border-white/10 flex items-center justify-center">
+          60 × 120 FT
+        </div>
+        <div class="py-1 px-2 flex items-center justify-center">
+          35 FT ENCLOSURE
+        </div>
+      </div>
+
+      <!-- Desktop Single Pill Layout (100% Preserved) -->
+      <div class="hidden sm:inline-flex items-center justify-center gap-4 py-2 px-5 rounded-full bg-black/40 backdrop-blur-md border border-white/15 text-[#E5EAE7] text-sm font-bold tracking-wider uppercase">
+        <span>24/7 OPEN</span>
+        <span class="text-emerald-400 font-black">·</span>
+        <span>FLOODLIT</span>
+        <span class="text-emerald-400 font-black">·</span>
+        <span>60 × 120 FT</span>
+        <span class="text-emerald-400 font-black">·</span>
+        <span>35 FT ENCLOSURE</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Scroll Cue -->
+  <a
+    href="#key-info"
+    class="absolute bottom-3 sm:bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-1 text-white/75 hover:text-white transition-colors group cursor-pointer focus:outline-none"
+    aria-label="Scroll to explore more about Beniya Cricket Arena"
+  >
+    <span class="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase text-white/80 group-hover:text-white transition-colors">
+      SCROLL TO EXPLORE
+    </span>
+    <svg class="w-3.5 sm:w-4 h-3.5 sm:h-4 animate-bounce text-emerald-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </a>
+
+</section>

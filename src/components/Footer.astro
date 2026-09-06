@@ -1,0 +1,97 @@
+---
+import { contactConfig } from '../data/siteConfig';
+
+const footerLinks = [
+  { label: 'Home', href: '#home' },
+  { label: 'Facilities', href: '#facilities' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'Gallery', href: '#gallery' },
+  { label: 'Location', href: '#location' },
+  { label: 'FAQ', href: '#faq' },
+];
+---
+
+<footer class="bg-[#161916] text-[#FAFAF7] pt-14 pb-12 border-t border-[#2A302A]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-[#2A302A]">
+      
+      <!-- Brand & Location -->
+      <div class="md:col-span-5 text-left">
+        <div class="flex flex-col mb-4">
+          <span class="font-extrabold text-2xl tracking-tight text-white leading-none">
+            BENIYA
+          </span>
+          <span class="text-xs font-bold tracking-[0.25em] text-[#8A9E90] uppercase mt-1 leading-none">
+            CRICKET ARENA
+          </span>
+        </div>
+        <p class="text-xs font-semibold text-[#8A9E90] uppercase tracking-wider mb-2">
+          Beniya Bagh · Varanasi, Uttar Pradesh
+        </p>
+        <p class="text-xs text-[#8A9E90] leading-relaxed max-w-sm">
+          A dedicated floodlit cricket turf facility built for matches, coaching, practice sessions, and tournaments in Varanasi.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="md:col-span-3 text-left">
+        <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">
+          Quick Links
+        </h4>
+        <ul class="space-y-2.5">
+          {footerLinks.map((link) => (
+            <li>
+              <a
+                href={link.href}
+                class="text-xs text-[#B0B8B0] hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Contact & Connect -->
+      <div class="md:col-span-4 text-left">
+        <h4 class="text-xs font-bold text-white uppercase tracking-widest mb-4">
+          Contact & Booking
+        </h4>
+        <ul class="space-y-2.5 text-xs text-[#B0B8B0]">
+          <li>
+            <span class="text-white font-semibold">Phone:</span>{' '}
+            <a href={contactConfig.phoneHref} class="hover:text-white transition-colors">
+              {contactConfig.phone}
+            </a>
+          </li>
+          <li>
+            <span class="text-white font-semibold">WhatsApp:</span>{' '}
+            <a
+              href={contactConfig.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-white transition-colors"
+            >
+              +91 98765 43210 (24/7 Booking)
+            </a>
+          </li>
+          <li>
+            <span class="text-white font-semibold">Address:</span> Beniya Bagh, Varanasi, UP 221001
+          </li>
+          <li>
+            <span class="text-white font-semibold">Hours:</span> Open 24/7 (Day & Night)
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom Bar / Copyright -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#8A9E90]">
+      <p>© {new Date().getFullYear()} Beniya Cricket Arena. All rights reserved.</p>
+      <p class="text-[11px]">Cricket Turf in Beniya Bagh, Varanasi, Uttar Pradesh</p>
+    </div>
+
+  </div>
+</footer>

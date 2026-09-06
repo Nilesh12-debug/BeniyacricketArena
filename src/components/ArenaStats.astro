@@ -1,0 +1,42 @@
+---
+import { arenaSpecs } from '../data/siteConfig';
+---
+
+<section id="the-arena" class="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-16 bg-[#080808]">
+  <div class="max-w-7xl mx-auto space-y-10">
+    <!-- Header -->
+    <div>
+      <h2 class="text-5xl sm:text-7xl md:text-8xl font-extrabold uppercase font-headline tracking-tighter text-[#F5F5F2]">
+        THE ARENA
+      </h2>
+    </div>
+
+    <!-- 2x2 Photo Specifications Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+      {arenaSpecs.map((spec) => (
+        <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/10] bg-[#111111] border border-white/10 group">
+          <!-- Background Image -->
+          <img
+            src={spec.image}
+            alt={spec.number}
+            class="w-full h-full object-cover filter brightness-[0.6] contrast-[1.15] group-hover:scale-105 transition-all duration-700 ease-out"
+            loading="lazy"
+          />
+
+          <!-- Dark Gradient Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-[#080808]/95 via-[#080808]/40 to-transparent"></div>
+
+          <!-- Bottom Left Spec & Subtitle -->
+          <div class="absolute bottom-0 inset-x-0 p-6 sm:p-10 space-y-1">
+            <div class="text-5xl sm:text-6xl md:text-7xl font-extrabold uppercase font-headline tracking-tight text-[#F5F5F2] leading-none">
+              {spec.number}
+            </div>
+            <div class="text-xs sm:text-sm font-mono font-bold tracking-[0.2em] text-[#C7FF00] uppercase pt-1">
+              {spec.subtitle}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

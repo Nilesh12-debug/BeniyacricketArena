@@ -1,0 +1,61 @@
+---
+import { contactConfig } from '../data/siteConfig';
+---
+
+<section class="relative py-28 sm:py-36 px-4 sm:px-8 lg:px-16 bg-[#080808] border-t border-white/10">
+  <div class="max-w-7xl mx-auto space-y-16">
+    <!-- Primary Heading & Concise Description -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-12 border-b border-white/10">
+      <div class="max-w-2xl">
+        <span class="text-xs font-mono uppercase tracking-[0.3em] text-[#C7FF00] block mb-3">
+          LOCATION INTENT · CENTRAL VARANASI
+        </span>
+        <h2 class="text-5xl sm:text-7xl md:text-8xl font-extrabold uppercase font-headline tracking-tighter text-[#F5F5F2]">
+          TURF IN VARANASI.
+        </h2>
+      </div>
+
+      <div class="max-w-md space-y-5">
+        <p class="text-lg sm:text-xl text-[#8E8E93] font-light leading-relaxed">
+          Looking for a premium cricket turf in Varanasi? Beniya Cricket Arena is located in Beniya Bagh.
+        </p>
+
+        <div>
+          <a
+            href="/arena/"
+            class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#C7FF00] hover:text-white transition-colors"
+          >
+            <span>EXPLORE THE ARENA</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Local Intent Proximity Notice (Sigra & Lehratara Search Intent) -->
+    <div class="p-8 sm:p-12 rounded-3xl bg-[#111111] border border-white/10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+      <div class="max-w-2xl space-y-2">
+        <span class="text-[10px] font-mono font-bold tracking-widest text-[#C7FF00] uppercase">
+          PROXIMITY & ACCESS
+        </span>
+        <h3 class="text-xl sm:text-2xl font-bold uppercase font-headline text-white">
+          LOOKING FOR A TURF AROUND SIGRA OR LEHRATARA?
+        </h3>
+        <p class="text-sm text-[#8E8E93] font-light leading-relaxed pt-1">
+          Beniya Cricket Arena is located in Beniya Bagh, Varanasi. Contact the arena directly for pricing and booking.
+        </p>
+      </div>
+
+      <div class="flex-shrink-0">
+        <a
+          href={contactConfig.whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary text-xs whitespace-nowrap"
+        >
+          <span>CONTACT THE ARENA →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

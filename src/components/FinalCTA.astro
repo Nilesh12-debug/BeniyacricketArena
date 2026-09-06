@@ -1,0 +1,49 @@
+---
+import { contactConfig } from '../data/siteConfig';
+---
+
+<section class="texture-cream py-14 sm:py-20 lg:py-28 bg-[#F4F0E8] border-b border-[#E5E0D8] text-center relative overflow-hidden">
+  
+  <!-- Subtle Atmospheric Blurred Forest Green Glow in Background -->
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] rounded-full bg-[#1B4D3E]/8 blur-[100px] pointer-events-none"></div>
+
+  <div class="reveal-group max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    
+    <span class="inline-block text-xs font-bold tracking-[0.25em] text-[#5A7865] uppercase mb-2 sm:mb-3">
+      BENIYA BAGH · VARANASI
+    </span>
+    
+    <h2 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-[#161916] tracking-tight mb-3 sm:mb-5 leading-tight">
+      BOOK YOUR CRICKET TURF IN VARANASI
+    </h2>
+
+    <p class="text-xs sm:text-base lg:text-lg text-[#5E665E] max-w-2xl mx-auto mb-6 sm:mb-10 leading-relaxed">
+      Pick your slot and get your game started at Beniya Cricket Arena. Open 24/7 with professional floodlighting and premium artificial turf.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-none mx-auto">
+      <a
+        href="#pricing"
+        class="btn-primary glow-forest glow-forest-hover w-full sm:w-auto text-sm sm:text-base font-bold px-6 sm:px-8 py-3.5 sm:py-4 min-h-[48px] shadow-md flex items-center justify-center gap-2"
+      >
+        <span>BOOK YOUR SLOT</span>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+      </a>
+
+      <a
+        href={contactConfig.whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-secondary w-full sm:w-auto text-sm sm:text-base font-bold px-6 sm:px-8 py-3.5 sm:py-4 min-h-[48px] bg-white flex items-center justify-center gap-2"
+      >
+        <svg class="w-5 h-5 text-[#1B4D3E]" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+        </svg>
+        <span>WHATSAPP US</span>
+      </a>
+    </div>
+
+  </div>
+</section>

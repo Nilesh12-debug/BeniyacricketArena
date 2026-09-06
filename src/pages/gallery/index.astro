@@ -1,0 +1,168 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import MobileBookingBar from '../../components/MobileBookingBar.astro';
+import { contactConfig, seoConfig, siteImages } from '../../data/siteConfig';
+---
+
+<Layout
+  title={seoConfig.pages.gallery.title}
+  description={seoConfig.pages.gallery.description}
+  keywords={seoConfig.pages.gallery.keywords}
+>
+  <Navbar />
+
+  <main class="pt-32 pb-20">
+    <!-- 1. Hero -->
+    <section class="px-4 sm:px-8 lg:px-16 py-12 max-w-7xl mx-auto">
+      <div class="space-y-4 max-w-3xl">
+        <span class="text-xs font-mono uppercase tracking-[0.3em] text-[#C7FF00] block">
+          VISUAL PROOF · BENIYA BAGH
+        </span>
+        <h1 class="text-6xl sm:text-8xl md:text-9xl font-extrabold uppercase font-headline tracking-tighter text-[#F5F5F2] leading-[0.82]">
+          GALLERY.
+        </h1>
+        <p class="text-xl sm:text-2xl text-[#8E8E93] font-light pt-2">
+          A glimpse of Varanasi's enclosed floodlit cricket arena.
+        </p>
+      </div>
+    </section>
+
+    <!-- 2. Asymmetric Mixed Aspect Ratio Gallery Grid -->
+    <section class="px-4 sm:px-8 lg:px-16 py-12 max-w-7xl mx-auto border-t border-white/10">
+      <div class="grid grid-cols-12 gap-4 sm:gap-6">
+        {siteImages.gallery.map((item) => (
+          <div
+            class={`gallery-item relative rounded-3xl overflow-hidden border border-white/10 bg-[#121212] group cursor-pointer ${item.span}`}
+            data-img-url={item.url}
+            data-img-title={item.title}
+            data-img-cat={item.category}
+          >
+            <img
+              src={item.url}
+              alt={`Beniya Cricket Arena - ${item.title}`}
+              class="w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.08] group-hover:scale-105 transition-all duration-700 ease-out"
+              loading="lazy"
+            />
+
+            <div class="absolute inset-0 bg-gradient-to-t from-[#080808]/80 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity"></div>
+
+            <div class="absolute bottom-0 inset-x-0 p-6 flex items-end justify-between">
+              <div>
+                <span class="text-[9px] font-mono font-bold tracking-widest text-[#C7FF00] uppercase block">
+                  {item.category}
+                </span>
+                <h3 class="text-base sm:text-lg font-bold uppercase font-headline text-white mt-0.5">
+                  {item.title}
+                </h3>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 3. Bottom Conversion Action -->
+    <section class="px-4 sm:px-8 lg:px-16 py-20 max-w-7xl mx-auto border-t border-white/10 text-center">
+      <div class="max-w-3xl mx-auto space-y-6">
+        <span class="text-xs font-mono font-bold tracking-[0.3em] text-[#C7FF00] uppercase">
+          LIVE MATCH ATMOSPHERE
+        </span>
+        <h2 class="text-5xl sm:text-7xl font-extrabold uppercase font-headline text-[#F5F5F2]">
+          PLAY YOUR NEXT MATCH HERE.
+        </h2>
+        <p class="text-base sm:text-lg text-[#8E8E93] font-light max-w-md mx-auto">
+          Contact the arena directly on WhatsApp or Call to reserve your session.
+        </p>
+
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <a
+            href={contactConfig.whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary text-xs sm:text-sm"
+          >
+            <span>WHATSAPP TO BOOK</span>
+            <span>→</span>
+          </a>
+
+          <a
+            href={contactConfig.phoneHref}
+            class="btn-secondary text-xs sm:text-sm"
+          >
+            <span>CALL NOW</span>
+            <span>→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="gallery-lightbox" class="fixed inset-0 z-50 bg-[#080808]/95 backdrop-blur-2xl p-4 sm:p-8 flex items-center justify-center hidden" role="dialog" aria-modal="true">
+      <button
+        type="button"
+        id="lightbox-close"
+        class="absolute top-6 right-6 w-11 h-11 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-[#C7FF00] hover:text-[#080808] transition-colors cursor-pointer text-lg font-bold"
+        aria-label="Close Lightbox"
+      >
+        ✕
+      </button>
+
+      <div class="max-w-5xl w-full max-h-[85vh] flex flex-col items-center">
+        <img
+          id="lightbox-img"
+          src=""
+          alt="Gallery enlarged preview"
+          class="max-w-full max-h-[72vh] object-contain rounded-2xl border border-white/10"
+        />
+        <div class="mt-4 text-center">
+          <div id="lightbox-cat" class="text-xs font-mono uppercase tracking-widest text-[#C7FF00]"></div>
+          <div id="lightbox-title" class="text-xl font-bold uppercase font-headline text-white mt-1"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+  <MobileBookingBar />
+</Layout>
+
+<script>
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  const lightbox = document.getElementById('gallery-lightbox');
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+  const lightboxTitle = document.getElementById('lightbox-title');
+  const lightboxCat = document.getElementById('lightbox-cat');
+  const closeBtn = document.getElementById('lightbox-close');
+
+  galleryItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      const url = (item as HTMLElement).dataset.imgUrl || '';
+      const title = (item as HTMLElement).dataset.imgTitle || '';
+      const cat = (item as HTMLElement).dataset.imgCat || '';
+
+      if (lightboxImg) lightboxImg.src = url;
+      if (lightboxTitle) lightboxTitle.textContent = title;
+      if (lightboxCat) lightboxCat.textContent = cat;
+
+      lightbox?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox?.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
+
+  closeBtn?.addEventListener('click', closeLightbox);
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !lightbox?.classList.contains('hidden')) {
+      closeLightbox();
+    }
+  });
+</script>

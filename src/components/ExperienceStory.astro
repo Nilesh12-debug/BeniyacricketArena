@@ -1,0 +1,51 @@
+---
+import { experienceStories, siteImages } from '../data/siteConfig';
+---
+
+<section id="the-experience" class="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-16 bg-[#080808]">
+  <div class="max-w-7xl mx-auto space-y-12">
+    <!-- Header -->
+    <div>
+      <h2 class="text-5xl sm:text-7xl md:text-8xl font-extrabold uppercase font-headline tracking-tighter text-[#F5F5F2]">
+        THE EXPERIENCE
+      </h2>
+    </div>
+
+    <!-- Wide Top Banner: MORE THAN A TURF -->
+    <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[21/9] sm:aspect-[24/9] max-h-[420px] bg-[#111111] border border-white/10 group">
+      <img
+        src={siteImages.ballTurf}
+        alt="Cricket ball on Beniya turf"
+        class="w-full h-full object-cover filter brightness-[0.7] contrast-[1.1] group-hover:scale-105 transition-all duration-700 ease-out"
+        loading="lazy"
+      />
+      <div class="absolute inset-0 bg-gradient-to-r from-[#080808]/90 via-[#080808]/30 to-transparent"></div>
+      <div class="absolute inset-0 p-8 sm:p-14 flex items-center">
+        <h3 class="text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase font-headline text-white tracking-tight leading-none max-w-lg">
+          MORE THAN<br />A TURF.
+        </h3>
+      </div>
+    </div>
+
+    <!-- 4 Visual Experience Tiles (LIGHTS. SPACE. ENERGY. THE GAME.) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {experienceStories.map((story) => (
+        <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/5] bg-[#111111] border border-white/10 group">
+          <img
+            src={story.image}
+            alt={story.title}
+            class="w-full h-full object-cover filter brightness-[0.75] contrast-[1.1] group-hover:scale-105 transition-all duration-700 ease-out"
+            loading="lazy"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-[#080808]/95 via-transparent to-transparent"></div>
+
+          <div class="absolute bottom-0 inset-x-0 p-6 sm:p-8">
+            <h4 class="text-3xl sm:text-4xl font-extrabold uppercase font-headline text-white tracking-tight">
+              {story.title}
+            </h4>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,23 +1,177 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
-</html>
+---
+import '../styles/global.css';
+import { contactConfig, seoConfig } from '../data/siteConfig';
 
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  image?: string;
+}
+
+const {
+  title = seoConfig.pages.home.title,
+  description = seoConfig.pages.home.description,
+  keywords = seoConfig.pages.home.keywords,
+  image = seoConfig.ogImage,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, seoConfig.siteUrl);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SportsActivityLocation",
+  "name": contactConfig.name,
+  "description": description,
+  "url": seoConfig.siteUrl,
+  "logo": `${seoConfig.siteUrl}/favicon.svg`,
+  "image": image,
+  "telephone": contactConfig.phoneRaw,
+  "priceRange": "₹600 - ₹1,400 per hour",
+  "currenciesAccepted": "INR",
+  "paymentAccepted": "Cash, UPI, Online Payment",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": contactConfig.area,
+    "addressLocality": contactConfig.city,
+    "addressRegion": contactConfig.state,
+    "postalCode": contactConfig.pincode,
+    "addressCountry": "IN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": seoConfig.geo.latitude,
+    "longitude": seoConfig.geo.longitude
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "opens": "00:00",
+      "closes": "23:59"
+    }
+  ],
+  "amenityFeature": [
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Artificial Cricket Turf",
+      "value": "Yes"
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "Floodlit Night Cricket",
+      "value": "Yes"
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "35 FT Enclosure Netting",
+      "value": "Yes"
+    },
+    {
+      "@type": "LocationFeatureSpecification",
+      "name": "60 × 120 FT Arena",
+      "value": "Yes"
+    }
+  ]
+};
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth bg-[#FAFAF7]">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1B4D3E" />
+    
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.join(", ")} />
+    <meta name="author" content={seoConfig.author} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:site_name" content={contactConfig.name} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={image} />
+
+    <!-- Google Fonts Preconnect & Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="bg-[#FAFAF7] text-[#161916] font-sans relative min-h-screen overflow-x-hidden antialiased pb-24 md:pb-0 selection:bg-[#1B4D3E] selection:text-white">
+    <!-- Desktop/Mobile Thin Scroll Progress Indicator -->
+    <div id="scroll-progress-bar" aria-hidden="true"></div>
+
+    <!-- Main Content Slot -->
+    <slot />
+
+    <!-- Global Scroll Reveal & Progress Tracker -->
+    <script>
+      // 1. Scroll Progress Bar
+      const progressBar = document.getElementById('scroll-progress-bar');
+      function updateProgressBar() {
+        if (!progressBar) return;
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        progressBar.style.width = `${scrollPercent}%`;
+      }
+      window.addEventListener('scroll', updateProgressBar, { passive: true });
+
+      // 2. Intersection Observer for Scroll Reveals
+      const revealElements = document.querySelectorAll('.reveal-group');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('revealed');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          root: null,
+          rootMargin: '0px 0px -40px 0px',
+          threshold: 0.12
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+      } else {
+        revealElements.forEach(el => el.classList.add('revealed'));
+      }
+    </script>
+  </body>
+</html>
