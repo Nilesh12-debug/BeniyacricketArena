@@ -36,7 +36,7 @@ export const contactConfig = {
 export const seoConfig = {
   siteUrl: "https://beniyacricketarena.com",
   author: "Beniya Cricket Arena",
-  ogImage: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format&fit=crop",
+  ogImage: "/images/beniya-hero-turf-playing.webp",
   geo: {
     latitude: "25.3145897",
     longitude: "83.0042436",
@@ -92,63 +92,80 @@ export const seoConfig = {
   }
 };
 
-/**
- * Curated authentic sports photography representing realistic local cricket turf conditions:
- * artificial grass pitch, nets enclosure, batsman/bowler action, evening floodlights.
- */
 export const siteImages = {
-  // Hero: Split-screen high-res action image on turf pitch
-  hero: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1600&auto=format&fit=crop",
+  // Hero: Enclosed artificial cricket turf in Varanasi with players under floodlights
+  hero: "/images/beniya-hero-turf-playing.webp",
   
-  // About section turf photo
-  about: "https://images.unsplash.com/photo-1531415074868-036b1c5d53ec?q=80&w=1400&auto=format&fit=crop",
+  // About section: Indian batsman at the crease inside the enclosed turf
+  about: "/images/beniya-cricket-batsman.webp",
   
-  // Dark section night play photo
-  nightPlay: "/images/night-cricket-turf.jpg",
+  // Dark section: Night cricket under floodlights
+  nightPlay: "/images/beniya-night-cricket.webp",
+
+  // Arena full view
+  fullTurf: "/images/beniya-cricket-turf-full-view.webp",
+
+  // High netting enclosure
+  enclosure: "/images/beniya-high-enclosure-netting.webp",
+
+  // Bowler run-up
+  bowler: "/images/beniya-cricket-bowler.webp",
+
+  // Macro turf surface with ball
+  ballTurf: "/images/beniya-artificial-turf-closeup.webp",
+
+  // Arena entrance
+  entrance: "/images/beniya-cricket-arena-entrance.webp",
   
-  // Gallery set
+  // Gallery set: 6 unique, accurately matched images
   gallery: [
     {
       id: "full-turf",
-      url: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format&fit=crop",
+      url: "/images/beniya-cricket-turf-full-view.webp",
       title: "Full Turf & Pitch View",
       description: "60 × 120 ft artificial playing surface with clear markings",
-      category: "TURF"
+      category: "TURF",
+      alt: "Wide-angle interior view of the 60x120 ft enclosed artificial cricket turf and pitch markings"
     },
     {
       id: "batsman",
-      url: "https://images.unsplash.com/photo-1531415074868-036b1c5d53ec?q=80&w=1200&auto=format&fit=crop",
+      url: "/images/beniya-cricket-batsman.webp",
       title: "Batsman at the Crease",
       description: "True bounce allowing full range of strokes",
-      category: "ACTION"
+      category: "ACTION",
+      alt: "Batsman at the crease preparing to play a shot inside the enclosed cricket turf"
     },
     {
       id: "bowler",
-      url: "https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?q=80&w=1200&auto=format&fit=crop",
+      url: "/images/beniya-cricket-bowler.webp",
       title: "Bowler Run-Up & Delivery",
       description: "Non-slip bowler approach area for pace and spin",
-      category: "ACTION"
+      category: "ACTION",
+      alt: "Bowler delivering a ball towards the batsman on the enclosed turf pitch"
     },
     {
       id: "enclosure",
-      url: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?q=80&w=1200&auto=format&fit=crop",
+      url: "/images/beniya-high-enclosure-netting.webp",
       title: "35 FT High Enclosure Netting",
       description: "Keeps shots inside the arena safely",
-      category: "FACILITY"
+      category: "FACILITY",
+      alt: "Tall 35-foot protective net enclosure surrounding the cricket turf facility"
     },
     {
       id: "night-lighting",
-      url: "/images/night-cricket-turf.jpg",
+      url: "/images/beniya-night-cricket.webp",
       title: "Floodlit Night Cricket",
       description: "High-power glare-free illumination for evening games",
-      category: "NIGHT"
+      category: "NIGHT",
+      alt: "Night cricket match under balanced LED floodlights inside the enclosed arena"
     },
     {
       id: "turf-closeup",
-      url: "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1200&auto=format&fit=crop",
+      url: "/images/beniya-artificial-turf-closeup.webp",
       title: "Turf Surface Close-Up",
       description: "High-density synthetic grass with cushioned underlay",
-      category: "SURFACE"
+      category: "SURFACE",
+      alt: "Close-up macro detail of the high-density artificial sports grass turf surface"
     }
   ]
 };
@@ -336,22 +353,22 @@ export const arenaSpecs = [
   {
     number: "60 × 120 FT",
     subtitle: "SPACE TO PLAY YOUR GAME",
-    image: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1000&auto=format&fit=crop"
+    image: "/images/beniya-cricket-turf-full-view.webp"
   },
   {
     number: "35 FT",
     subtitle: "HIGH ENCLOSURE",
-    image: "https://images.unsplash.com/photo-1529900748604-07564a03e7a6?q=80&w=1000&auto=format&fit=crop"
+    image: "/images/beniya-high-enclosure-netting.webp"
   },
   {
     number: "24 / 7",
     subtitle: "OPEN WHEN YOU ARE",
-    image: "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=1000&auto=format&fit=crop"
+    image: "/images/beniya-hero-turf-playing.webp"
   },
   {
     number: "FLOODLIT",
     subtitle: "BUILT FOR NIGHT CRICKET",
-    image: "/images/night-cricket-turf.jpg"
+    image: "/images/beniya-night-cricket.webp"
   }
 ];
 
@@ -360,25 +377,25 @@ export const experienceStories = [
     tag: "LIGHTS.",
     title: "LIGHTS.",
     description: "Anti-glare floodlights engineered for crisp ball tracking all night.",
-    image: "https://images.unsplash.com/photo-1508098682722-e99c43a406b2?q=80&w=1400&auto=format&fit=crop"
+    image: "/images/beniya-night-cricket.webp"
   },
   {
     tag: "SPACE.",
     title: "SPACE.",
     description: "35 ft high ceiling enclosure for unrestricted aerial strokeplay.",
-    image: "https://images.unsplash.com/photo-1531415074868-036b1c5d53ec?q=80&w=1400&auto=format&fit=crop"
+    image: "/images/beniya-high-enclosure-netting.webp"
   },
   {
     tag: "ENERGY.",
     title: "ENERGY.",
     description: "Electric match atmosphere built for intense competitive play.",
-    image: "https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?q=80&w=1400&auto=format&fit=crop"
+    image: "/images/beniya-cricket-bowler.webp"
   },
   {
     tag: "THE GAME.",
     title: "THE GAME.",
     description: "True-bounce pitch crafted for authentic batting and bowling.",
-    image: "/images/night-cricket-turf.jpg"
+    image: "/images/beniya-cricket-batsman.webp"
   }
 ];
 

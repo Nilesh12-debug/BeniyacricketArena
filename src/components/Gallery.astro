@@ -25,7 +25,7 @@ import { siteImages } from '../data/siteConfig';
           <div class="relative h-60 sm:h-72 overflow-hidden bg-[#E2DDD5]">
             <img
               src={item.url}
-              alt={`${item.title} at Beniya Cricket Arena in Varanasi`}
+              alt={item.alt || `${item.title} at Beniya Cricket Arena`}
               class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
               loading="lazy"
             />

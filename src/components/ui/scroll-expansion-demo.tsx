@@ -26,9 +26,9 @@ const sampleMediaContent: MediaContentCollection = {
   video: {
     src: 'https://me7aitdbxq.ufs.sh/f/2wsMIGDMQRdYuZ5R8ahEEZ4aQK56LizRdfBSqeDMsmUIrJN1',
     poster:
-      'https://images.pexels.com/videos/5752729/space-earth-universe-cosmos-5752729.jpeg',
+      '/images/beniya-hero-turf-playing.webp',
     background:
-      'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=2000&auto=format&fit=crop',
+      '/images/beniya-hero-turf-playing.webp',
     title: 'YOUR GAME. YOUR ARENA.',
     date: 'BENIYA BAGH · VARANASI',
     scrollToExpand: 'Scroll to expand arena experience',
@@ -40,8 +40,8 @@ const sampleMediaContent: MediaContentCollection = {
     },
   },
   image: {
-    src: '/images/night-cricket-turf.jpg',
-    background: '/images/night-cricket-turf.jpg',
+    src: '/images/beniya-night-cricket.webp',
+    background: '/images/beniya-night-cricket.webp',
     title: 'PLAY AFTER DARK.',
     date: 'VARANASI NIGHT CRICKET',
     scrollToExpand: 'Scroll to expand',
