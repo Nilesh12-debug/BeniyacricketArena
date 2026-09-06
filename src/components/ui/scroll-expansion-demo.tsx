@@ -40,9 +40,8 @@ const sampleMediaContent: MediaContentCollection = {
     },
   },
   image: {
-    src: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1400&auto=format&fit=crop',
-    background:
-      'https://images.unsplash.com/photo-1529900748604-07564a03e7a6?q=80&w=2000&auto=format&fit=crop',
+    src: '/images/night-cricket-turf.jpg',
+    background: '/images/night-cricket-turf.jpg',
     title: 'PLAY AFTER DARK.',
     date: 'VARANASI NIGHT CRICKET',
     scrollToExpand: 'Scroll to expand',

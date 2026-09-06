@@ -104,7 +104,7 @@ export const siteImages = {
   about: "https://images.unsplash.com/photo-1531415074868-036b1c5d53ec?q=80&w=1400&auto=format&fit=crop",
   
   // Dark section night play photo
-  nightPlay: "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1600&auto=format&fit=crop",
+  nightPlay: "/images/night-cricket-turf.jpg",
   
   // Gallery set
   gallery: [
@@ -138,7 +138,7 @@ export const siteImages = {
     },
     {
       id: "night-lighting",
-      url: "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1200&auto=format&fit=crop",
+      url: "/images/night-cricket-turf.jpg",
       title: "Floodlit Night Cricket",
       description: "High-power glare-free illumination for evening games",
       category: "NIGHT"
@@ -351,7 +351,7 @@ export const arenaSpecs = [
   {
     number: "FLOODLIT",
     subtitle: "BUILT FOR NIGHT CRICKET",
-    image: "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1000&auto=format&fit=crop"
+    image: "/images/night-cricket-turf.jpg"
   }
 ];
 
@@ -378,7 +378,7 @@ export const experienceStories = [
     tag: "THE GAME.",
     title: "THE GAME.",
     description: "True-bounce pitch crafted for authentic batting and bowling.",
-    image: "https://images.unsplash.com/photo-1516245834210-c4c142787335?q=80&w=1400&auto=format&fit=crop"
+    image: "/images/night-cricket-turf.jpg"
   }
 ];
 
