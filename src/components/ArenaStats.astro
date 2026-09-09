@@ -5,7 +5,7 @@ import { arenaSpecs } from '../data/siteConfig';
 <section id="the-arena" class="relative py-24 sm:py-32 px-4 sm:px-8 lg:px-16 bg-[#080808]">
   <div class="max-w-7xl mx-auto space-y-10">
     <!-- Header -->
-    <div>
+    <div class="gsap-reveal">
       <h2 class="text-5xl sm:text-7xl md:text-8xl font-extrabold uppercase font-headline tracking-tighter text-[#F5F5F2]">
         THE ARENA
       </h2>
@@ -14,7 +14,7 @@ import { arenaSpecs } from '../data/siteConfig';
     <!-- 2x2 Photo Specifications Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
       {arenaSpecs.map((spec) => (
-        <div class="relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/10] bg-[#111111] border border-white/10 group">
+        <div class="gsap-card gsap-tilt relative rounded-2xl sm:rounded-3xl overflow-hidden aspect-[16/10] bg-[#111111] border border-white/10 group">
           <!-- Background Image -->
           <img
             src={spec.image}
@@ -39,4 +39,5 @@ import { arenaSpecs } from '../data/siteConfig';
       ))}
     </div>
   </div>
+
 </section>

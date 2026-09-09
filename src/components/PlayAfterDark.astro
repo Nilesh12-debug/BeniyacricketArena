@@ -5,14 +5,14 @@ import { siteImages } from '../data/siteConfig';
 <section class="texture-dark-net py-14 sm:py-20 lg:py-28 bg-[#161916] text-[#FAFAF7] relative overflow-hidden border-y border-[#2A302A]">
   
   <!-- Subtle Atmospheric Reflected Green Glow in Background -->
-  <div class="absolute top-1/3 -left-32 w-96 h-96 rounded-full bg-[#1B4D3E]/20 blur-[120px] pointer-events-none"></div>
-  <div class="absolute bottom-10 right-0 w-96 h-96 rounded-full bg-[#1B4D3E]/15 blur-[140px] pointer-events-none"></div>
+  <div class="ambient-glow absolute top-1/3 -left-32 w-96 h-96 rounded-full bg-[#1B4D3E]/20 blur-[120px] pointer-events-none"></div>
+  <div class="ambient-glow absolute bottom-10 right-0 w-96 h-96 rounded-full bg-[#1B4D3E]/15 blur-[140px] pointer-events-none"></div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
       
       <!-- Left: Dark Editorial Message -->
-      <div class="reveal-group lg:col-span-6 text-left">
+      <div class="gsap-reveal lg:col-span-6 text-left">
         <div class="inline-flex items-center gap-2 mb-2 sm:mb-3">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
           <span class="text-xs font-bold tracking-[0.25em] text-[#8A9E90] uppercase">
@@ -52,14 +52,15 @@ import { siteImages } from '../data/siteConfig';
       </div>
 
       <!-- Right: Action Photo in Night Play with Smooth Hover Depth -->
-      <div class="reveal-group lg:col-span-6">
-        <div class="relative rounded-2xl overflow-hidden border border-[#2A302A] shadow-2xl hover:border-[#1B4D3E]/60 transition-colors duration-300 bg-[#0F120F] group">
+      <div class="gsap-reveal lg:col-span-6">
+        <div class="gsap-tilt relative rounded-2xl overflow-hidden border border-[#2A302A] shadow-2xl hover:border-[#1B4D3E]/60 transition-colors duration-300 bg-[#0F120F] group">
           <img
             src={siteImages.nightPlay}
             alt="Cricket match under night floodlights at Beniya Cricket Arena in Varanasi"
             class="w-full h-64 sm:h-[380px] lg:h-[460px] object-cover object-center group-hover:scale-103 transition-transform duration-700 ease-out"
             loading="lazy"
           />
+
           <div class="absolute inset-0 bg-gradient-to-t from-[#161916]/85 via-transparent to-transparent"></div>
           <div class="absolute bottom-3 left-3 right-3 sm:bottom-5 sm:left-5 sm:right-5 text-xs text-[#EBF3EF] flex items-center justify-between">
             <span class="font-bold text-[11px] sm:text-xs">Even Floodlight Coverage</span>

@@ -6,7 +6,7 @@ import { facilitiesList } from '../data/siteConfig';
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
-    <div class="reveal-group text-center max-w-2xl mx-auto mb-8 sm:mb-16">
+    <div class="gsap-reveal text-center max-w-2xl mx-auto mb-8 sm:mb-16">
       <span class="inline-block text-xs font-bold tracking-[0.2em] text-[#5A7865] uppercase mb-2">
         FACILITIES & ADVANTAGES
       </span>
@@ -19,9 +19,9 @@ import { facilitiesList } from '../data/siteConfig';
     </div>
 
     <!-- 6 Facility Cards with Refined Hover Micro-Interactions -->
-    <div class="reveal-group grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
       {facilitiesList.map((facility, index) => (
-        <div class="group bg-[#FFFFFF] border border-[#E5E0D8] rounded-xl p-5 sm:p-7 hover:border-[#1B4D3E]/50 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-[#1B4D3E]/5 transition-all duration-300 flex flex-col justify-between cursor-default">
+        <div class="gsap-card gsap-tilt group bg-[#FFFFFF] border border-[#E5E0D8] rounded-xl p-5 sm:p-7 hover:border-[#1B4D3E]/50 hover:-translate-y-1.5 hover:shadow-lg hover:shadow-[#1B4D3E]/5 transition-all duration-300 flex flex-col justify-between cursor-default">
           <div>
             <!-- Minimal Icon Badge -->
             <div class="w-9 sm:w-10 h-9 sm:h-10 rounded-lg bg-[#EBF3EF] text-[#1B4D3E] group-hover:bg-[#1B4D3E] group-hover:text-white transition-colors duration-300 flex items-center justify-center mb-4 sm:mb-5 font-extrabold text-xs sm:text-sm border border-[#1B4D3E]/15">
@@ -39,6 +39,7 @@ import { facilitiesList } from '../data/siteConfig';
         </div>
       ))}
     </div>
+
 
   </div>
 </section>

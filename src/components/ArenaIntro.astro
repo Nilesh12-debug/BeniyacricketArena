@@ -14,8 +14,8 @@ const highlights = [
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
       
       <!-- Image First on Mobile, Left Column on Desktop -->
-      <div class="reveal-group lg:col-span-6 order-1">
-        <div class="relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-[#E5E0D8] bg-[#E2DDD5] group transition-all duration-300">
+      <div class="gsap-reveal lg:col-span-6 order-1">
+        <div class="gsap-tilt relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl border border-[#E5E0D8] bg-[#E2DDD5] group transition-all duration-300">
           <img
             src={siteImages.about}
             alt="Batsman playing cricket inside the enclosed artificial turf at Beniya Cricket Arena in Varanasi"
@@ -29,10 +29,11 @@ const highlights = [
       </div>
 
       <!-- Text Second on Mobile, Right Column on Desktop -->
-      <div class="reveal-group lg:col-span-6 order-2 text-left">
+      <div class="gsap-reveal lg:col-span-6 order-2 text-left">
         <span class="inline-block text-xs font-bold tracking-[0.2em] text-[#5A7865] uppercase mb-2 sm:mb-3">
           ABOUT BENIYA CRICKET ARENA
         </span>
+
         
         <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#161916] tracking-tight leading-tight mb-4 sm:mb-6">
           A CRICKET TURF BUILT FOR THE GAME.

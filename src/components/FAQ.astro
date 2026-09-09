@@ -6,7 +6,7 @@ import { faqs } from '../data/siteConfig';
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
-    <div class="reveal-group text-center max-w-2xl mx-auto mb-8 sm:mb-16">
+    <div class="gsap-reveal text-center max-w-2xl mx-auto mb-8 sm:mb-16">
       <span class="inline-block text-xs font-bold tracking-[0.2em] text-[#5A7865] uppercase mb-2">
         QUESTIONS & ANSWERS
       </span>
@@ -19,10 +19,10 @@ import { faqs } from '../data/siteConfig';
     </div>
 
     <!-- Accordion List (Optimized Mobile Tap Targets & Smooth Expansion) -->
-    <div class="reveal-group space-y-3 sm:space-y-4">
+    <div class="space-y-3 sm:space-y-4">
       {faqs.map((item, index) => (
         <details
-          class="group bg-white border border-[#E5E0D8] rounded-xl overflow-hidden shadow-xs hover:border-[#1B4D3E]/30 open:border-[#1B4D3E]/50 transition-all duration-200"
+          class="gsap-card group bg-white border border-[#E5E0D8] rounded-xl overflow-hidden shadow-xs hover:border-[#1B4D3E]/30 open:border-[#1B4D3E]/50 transition-all duration-200"
           open={index === 0}
         >
           <summary class="flex items-center justify-between p-4 sm:p-6 cursor-pointer select-none text-left font-bold text-sm sm:text-lg text-[#161916] group-hover:text-[#1B4D3E] transition-colors focus:outline-none">
@@ -39,6 +39,7 @@ import { faqs } from '../data/siteConfig';
         </details>
       ))}
     </div>
+
 
   </div>
 </section>

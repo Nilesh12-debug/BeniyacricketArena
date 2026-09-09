@@ -6,7 +6,7 @@ import { reviews } from '../data/siteConfig';
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
     
     <!-- Section Header -->
-    <div class="reveal-group text-center max-w-2xl mx-auto mb-8 sm:mb-16">
+    <div class="gsap-reveal text-center max-w-2xl mx-auto mb-8 sm:mb-16">
       <span class="inline-block text-xs font-bold tracking-[0.2em] text-[#5A7865] uppercase mb-2">
         COMMUNITY FEEDBACK
       </span>
@@ -19,9 +19,9 @@ import { reviews } from '../data/siteConfig';
     </div>
 
     <!-- 3 Compact Testimonial Cards -->
-    <div class="reveal-group grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
       {reviews.map((rev) => (
-        <div class="group bg-white border border-[#E5E0D8] rounded-xl p-5 sm:p-7 flex flex-col justify-between shadow-xs hover:border-[#1B4D3E]/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
+        <div class="gsap-card gsap-tilt group bg-white border border-[#E5E0D8] rounded-xl p-5 sm:p-7 flex flex-col justify-between shadow-xs hover:border-[#1B4D3E]/40 hover:-translate-y-1 hover:shadow-md transition-all duration-300">
           <div>
             <!-- Star Rating -->
             <div class="flex items-center gap-1 text-[#1B4D3E] mb-3 sm:mb-4">
@@ -51,6 +51,7 @@ import { reviews } from '../data/siteConfig';
         </div>
       ))}
     </div>
+
 
   </div>
 </section>

@@ -258,54 +258,15 @@ body {
   transform: translateY(0) scale(0.98);
 }
 
-/* Scroll Reveal Animations (Triggered once via IntersectionObserver) */
-.reveal-group {
-  opacity: 0;
-  transform: translateY(22px);
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: opacity, transform;
+/* GSAP Interactive 3D Perspective & Hardware Acceleration */
+.gsap-tilt {
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
-.reveal-group.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Hero Staggered Load Animation Keyframes */
-@keyframes hero-fade-up {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-animate-eyebrow {
-  opacity: 0;
-  animation: hero-fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards;
-}
-
-.hero-animate-h1 {
-  opacity: 0;
-  animation: hero-fade-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
-}
-
-.hero-animate-desc {
-  opacity: 0;
-  animation: hero-fade-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
-}
-
-.hero-animate-cta {
-  opacity: 0;
-  animation: hero-fade-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards;
-}
-
-.hero-animate-specs {
-  opacity: 0;
-  animation: hero-fade-up 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards;
+.gsap-reveal,
+.gsap-card {
+  will-change: transform, opacity;
 }
 
 /* Smooth Horizontal Scroll snap for mobile gallery */
@@ -331,7 +292,9 @@ body {
   .animate-pulse-glow {
     animation: none !important;
   }
-  .reveal-group {
+  .reveal-group,
+  .gsap-reveal,
+  .gsap-card {
     opacity: 1 !important;
     transform: none !important;
   }
@@ -339,8 +302,11 @@ body {
   .hero-animate-h1,
   .hero-animate-desc,
   .hero-animate-cta,
-  .hero-animate-specs {
+  .hero-animate-specs,
+  .hero-scroll-cue {
     opacity: 1 !important;
     animation: none !important;
+    transform: none !important;
   }
 }
+

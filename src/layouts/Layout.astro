@@ -139,39 +139,30 @@ const jsonLd = {
     <!-- Main Content Slot -->
     <slot />
 
-    <!-- Global Scroll Reveal & Progress Tracker -->
+    <!-- GSAP Master Animation Controller -->
     <script>
-      // 1. Scroll Progress Bar
-      const progressBar = document.getElementById('scroll-progress-bar');
-      function updateProgressBar() {
-        if (!progressBar) return;
-        const scrollTop = window.scrollY || document.documentElement.scrollTop;
-        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
-        progressBar.style.width = `${scrollPercent}%`;
+      import { initAnimations } from '../lib/animations';
+
+      // Initialize GSAP animations when DOM is ready
+      let cleanup: (() => void) | undefined;
+      
+      function start() {
+        if (cleanup) cleanup();
+        cleanup = initAnimations();
       }
-      window.addEventListener('scroll', updateProgressBar, { passive: true });
 
-      // 2. Intersection Observer for Scroll Reveals
-      const revealElements = document.querySelectorAll('.reveal-group');
-      if ('IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('revealed');
-              observer.unobserve(entry.target);
-            }
-          });
-        }, {
-          root: null,
-          rootMargin: '0px 0px -40px 0px',
-          threshold: 0.12
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', start);
       } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
+        start();
       }
+
+      // Astro View Transition Lifecycle support
+      document.addEventListener('astro:page-load', start);
+      document.addEventListener('astro:before-swap', () => {
+        if (cleanup) cleanup();
+      });
     </script>
   </body>
 </html>
+
